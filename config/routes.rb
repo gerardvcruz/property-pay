@@ -13,10 +13,10 @@ Rails.application.routes.draw do
   # Owner Routes
   get 'owner' => 'application#owner'
 
-  get 'owner/dashboard' => 'application#owner_main'
+  get 'owner/dashboard' => 'owners#dashboard'
 
-  get 'owner/properties' => 'application#owner_properties'
+  get 'owner/properties' => 'properties#index'
 
-  get 'owner/renters' => 'application#owner_renters'
+  get 'owner/renters' => 'owners#renters'
 
 end

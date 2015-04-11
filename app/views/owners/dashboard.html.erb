@@ -1,0 +1,43 @@
+<div class="container no-padding">
+  <div class="container-flex">
+    <div class="col-2 col-flex side-nav">
+      <%= link_to owner_dashboard_path, class: "nav-item" do %>
+        <i class="fa fa-tachometer"></i>Dashboard
+      <% end %>
+
+      <%= link_to owner_properties_path, class: "nav-item" do %>
+        <i class="fa fa-home"></i>Properties
+      <% end %>
+
+      <%= link_to owner_renters_path, class: "nav-item" do %>
+        <i class="fa fa-users"></i>Renters
+      <% end %>
+    </div>
+
+    <div class="col-10">
+      <div class="col-12">
+        <h3>Greetings, <%= current_user.email %>!</h3>
+      </div>
+      <div class="col-4">
+        <button class="button-white full-width">
+          <h1><i class="fa fa-inbox"></i></h1>
+          <h4>Check inbox</h4>
+        </button>
+      </div>
+      <div class="col-4">
+        <button class="button-white full-width">
+          <h1><i class="fa fa-area-chart"></i></h1>
+          <h4>View property statistics</h4>
+        </button>
+      </div>
+
+      <div class="col-4">
+        <button class="button-white full-width">
+          <h1><i class="fa fa-user-times"></i></h1>
+          <h4>Monthly Renters Dues</h4>
+        </button>
+      </div>
+      <!-- <%= current_user.user_type %> -->
+    </div>
+  </div>
+</div>

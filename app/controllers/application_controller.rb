@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   end
 
   def owner_main
-    if user_signed_in? && current_user._usertype == "owner"
+    if user_signed_in? && current_user.user_type == "owner"
 
     else
       redirect_to root_path
