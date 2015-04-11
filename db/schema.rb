@@ -11,25 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150411070335) do
+ActiveRecord::Schema.define(version: 20150411064400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "properties", force: :cascade do |t|
-    t.string   "name"
-    t.string   "type"
+    t.string   "property_name"
+    t.string   "property_type"
     t.json     "coordinates"
     t.text     "address"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "user_properties", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "property_id"
-    t.integer  "type"
+    t.integer  "owner_type"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 20150411070335) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "user_type"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

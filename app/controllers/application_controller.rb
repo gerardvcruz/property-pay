@@ -17,6 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def renter_main
+    @properties = UserProperty.where(user_id: current_user.id)
   end
 
   protected
