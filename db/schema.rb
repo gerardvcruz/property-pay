@@ -11,17 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150411091501) do
+ActiveRecord::Schema.define(version: 20150411134010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "payment_records", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "property_id"
+    t.decimal  "amount"
+    t.string   "status"
+    t.integer  "ref_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.decimal  "balance"
+  end
+
   create_table "properties", force: :cascade do |t|
-    t.string "name"
-    t.string "property_type"
-    t.json   "coordinates"
-    t.text   "address"
-    t.text   "description"
+    t.string  "name"
+    t.string  "property_type"
+    t.json    "coordinates"
+    t.text    "address"
+    t.text    "description"
+    t.decimal "rent_price"
   end
 
   create_table "user_properties", force: :cascade do |t|
