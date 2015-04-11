@@ -47,7 +47,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: property-paytest
+  database: property-pay_test
   username: property-pay
   password: property-pay
 
@@ -72,6 +72,6 @@ test:
 #
 production:
   <<: *default
-  database: property-payproduction
+  database: property-pay_production
   username: property-pay
   password: property-pay
