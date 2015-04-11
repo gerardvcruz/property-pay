@@ -18,7 +18,7 @@ class PaymentRecord < ActiveRecord::Base
 
   end
 
-  def self.bill_renter user_id, dues
+  def self.bill_renter user_id
     if User.find(user_id).nil?
       @message = {:message => "user not found", :success => false}
     else
