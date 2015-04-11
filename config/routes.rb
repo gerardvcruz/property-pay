@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :properties
 
   root 'application#home'
 
   get 'renter' => 'application#renter'
 
-  get 'renter/dashboard' => 'application#renter_main'
+  get 'renter/dashboard' => 'renters#dashboard'
 
+  get 'renter/monthly_rent/' => 'renters#rent'
 
   # Owner Routes
   get 'owner' => 'application#owner'

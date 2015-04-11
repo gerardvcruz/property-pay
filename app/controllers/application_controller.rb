@@ -16,12 +16,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def renter_main
-    @properties = UserProperty.where(user_id: current_user.id)
-  end
-
-
-  # Owners Controller
+  # Owners Actions
   def owner
     if user_signed_in? && current_user.user_type == "renter"
       redirect_to '/owner/dashboard'
@@ -32,7 +27,7 @@ class ApplicationController < ActionController::Base
     if user_signed_in? && current_user._usertype == "owner"
 
     else
-      redirect_to root
+      redirect_to root_path
     end
   end
 

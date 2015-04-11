@@ -1,0 +1,43 @@
+<div class="container no-padding">
+  <div class="container-flex">
+    <div class="col-2 col-flex side-nav">
+      <%= link_to renter_dashboard_path, class: "nav-item" do %>
+        <i class="fa fa-tachometer"></i>Dashboard
+      <% end %>
+
+      <%= link_to renter_monthly_rent_path, class: "nav-item" do %>
+        <i class="fa fa-home"></i>Rent
+      <% end %>
+
+      <a class="nav-item">
+        <i class="fa fa-bolt"></i>Dues
+      </a>
+    </div>
+
+    <div class="col-10">
+      <div class="col-12">
+        <h3>Welcome back, <%= current_user.email %>!</h3>
+      </div>
+      <div class="col-4">
+        <button class="button-white full-width">
+          <h1><i class="fa fa-rub"></i></h1>
+          <h4>Pay for this month's rent</h4>
+        </button>
+      </div>
+      <div class="col-4">
+        <button class="button-white full-width">
+          <h1><i class="fa fa-area-chart"></i></h1>
+          <h4>View past month's bills</h4>
+        </button>
+      </div>
+      <div class="col-4">
+        <button class="button-white full-width">
+          <h1><i class="fa fa-phone"></i></h1>
+          <h4>Contact Landlord</h4>
+        </button>
+      </div>
+
+      <!-- <%= current_user.user_type %> -->
+    </div>
+  </div>
+</div>

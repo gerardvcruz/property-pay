@@ -50,3 +50,5 @@ gem 'devise'
 gem 'paloma'
 
 gem 'font-awesome-rails'
+
+gem 'chart-js-rails'
