@@ -3,4 +3,8 @@ Rails.application.routes.draw do
 
   root 'application#home'
 
+  get 'renter' => 'application#renter'
+
+  get 'owner' => 'application#owner'
+
 end
