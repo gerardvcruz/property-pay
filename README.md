@@ -1,14 +1,14 @@
 # property-pay
 
 ## Chikka API
- [ ] Account Verification
- [ ] Mobile Notifications
+ - [ ] Account Verification
+ - [ ] Mobile Notifications
 
 ## Coins API
- [ ] Pay Rents
+ - [ ] Pay Rents
 
 ## Heremaps API
- [ ] -- -- --
+ - [ ] -- -- --
 
 ## Paypal API
- [ ] -- -- --
+ - [ ] -- -- --
