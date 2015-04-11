@@ -2,7 +2,7 @@ class RentersController < ApplicationController
   before_action :renter?
 
   def dashboard
-
+    @user_first = User.first # => User.find(1)
   end
 
   def rent

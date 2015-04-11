@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   get 'renter/dashboard' => 'renters#dashboard'
 
-  get 'renter/monthly_rent/' => 'renters#rent'
+  get 'renter/monthly_rent/' => 'renters#monthly_rent'
 
   # Owner Routes
   get 'owner' => 'application#owner'
