@@ -16,9 +16,33 @@
 
     <div class="col-10">
       <div class="col-12">
-        <h3>Welcome back, <%= current_user.email %>!</h3>
-      </div>
+        <!-- <h3>Welcome back, <%= current_user.email %>!</h3> -->
+        <div class="col-12">
+          <div class="col-9">
+            <h3>Property Listing</h3>
+          </div>
+          <div class="col-3">
+            <!-- <%= link_to owner_renters_path, class: "nav-item" do %> -->
+            <button class="button-white float-right fa fa-plus"> Add Listing</button>
+            <!-- <% end %> -->
+          </div>
+        </div>
+
+
+
+
+        <!-- Looping of Listing -->
+        <% @properties.each do |p| %>
+        <div class="col-3">
+          <button class="button-white full-width">
+            <h1><img src="http://placehold.it/200x150"></i></h1>
+            <h4><%=p.name%></h4>
+          </button>
+        </div>
+        <% end %>
+        <!-- End of looping -->
+
       <!-- <%= current_user.user_type %> -->
-    </div>
+      </div>
   </div>
 </div>
