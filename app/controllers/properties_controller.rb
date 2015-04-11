@@ -21,6 +21,10 @@ class PropertiesController < ApplicationController
     #Property.create(property_params)
   end
 
+  def edit
+    @property = Property.find(params[:id])
+  end
+
   def new
   end
 
@@ -29,9 +33,20 @@ class PropertiesController < ApplicationController
   end
 
   def update
+    property = Property.find_by_id(params[:id])
+    property.name = params[:name]
+    property.property_type = params[:property_type]
+    property.rent_price = params[:rent_price]
+    property.save
+
+    redirect_to property_path(params[:id])
   end
 
   def destroy
+    property = Property.find_by_id(params[:id])
+    property.destroy
+
+    redirect_to owner_properties_path
   end
 
   private

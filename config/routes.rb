@@ -25,4 +25,6 @@ Rails.application.routes.draw do
 
   get 'owner/properties/:id' => 'properties#show'
 
+  get 'owner/properties/:id/edit' => 'properties#edit'
+
 end

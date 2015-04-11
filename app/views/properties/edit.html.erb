@@ -19,29 +19,31 @@
         <!-- <h3>Welcome back, <%= current_user.email %>!</h3> -->
         <div class="col-12">
           <div class="col-12">
-            <h3>Add Property</h3>
+            <h3>Edit Property</h3>
           </div>
 
-          <%= form_tag("/properties", method: "post", name:"property") do %>
+          <%= form_tag("/properties/#{@property.id}", method: "put",id: @property.id, name:"properties") do %>
+
+          <input type="hidden" name="id" value="">
 
           <div class="col-12">
               <label>Property Name:</label>
-              <input class="col-5" type='text' name="name"/>
+              <input class="col-5" type='text' name="name" value="<%= @property.name %>"/>
           </div>
 
           <div class="col-12">
               <label>Rent Price:</label>
-              <input class="col-5" type='numbers' name="rent_price"/>
+              <input class="col-5" type='numbers' name="rent_price" value="<%= @property.rent_price %>"/>
           </div>
 
           <div class="col-12">
               <label>Property Type:</label>
               <select class='col-5' name="property_type">
                 <option>-- Choose Type --</option>
-                <option value="condominium">Condominium</option>
-                <option value="hotel">Hotel</option>
-                <option value="office space">Office Space</option>
-                <option value="parking">Parking</option>
+                <option <%= @property.property_type == 'condominium' ? 'selected="selected"' : '' %> value="condominium">Condominium</option>
+                <option <%= @property.property_type == 'hotel' ? 'selected="selected"' : '' %> value="hotel">Hotel</option>
+                <option <%= @property.property_type == 'office space' ? 'selected="selected"' : '' %> value="office space">Office Space</option>
+                <option <%= @property.property_type == 'parking' ? 'selected="selected"' : '' %> value="parking">Parking</option>
               </select>
           </div>
 
