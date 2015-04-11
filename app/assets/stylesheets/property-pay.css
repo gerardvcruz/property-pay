@@ -627,6 +627,7 @@ button[disabled],
 button[disabled]:hover,
 button[disabled]:active
 {
+    color:black;
     background: #ccc;
     border-color: #ddd;
     cursor:not-allowed;

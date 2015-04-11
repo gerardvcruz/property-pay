@@ -19,11 +19,18 @@
         <h3>Welcome back, <%= current_user.email %>!</h3>
       </div>
       <div class="col-4">
-        <%= link_to_modal "#payment-modal" do %>
-          <button class="button-white full-width">
-            <h1><i class="fa fa-rub"></i></h1>
-            <h4>Pay for this month's rent</h4>
-          </button>
+        <% if @payment_record.status == "paid" %>
+          <button type="button" class="button-white full-width" disabled>
+          <h1><i class="fa fa-rub"></i></h1>
+          <h4>Pay for this month's rent</h4>
+        <% else %>
+
+          <%= link_to_modal "#payment-modal" do %>
+            <button type="button" class="button-white full-width ">
+              <h1><i class="fa fa-rub"></i></h1>
+              <h4>Pay for this month's rent</h4>
+            </button>
+          <% end %>
         <% end %>
       </div>
       <div class="col-4">
