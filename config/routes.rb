@@ -7,4 +7,5 @@ Rails.application.routes.draw do
 
   get 'owner' => 'application#owner'
 
+  get 'renter/dashboard' => 'application#renter_main'
 end
