@@ -16,16 +16,36 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def owner
-    if user_signed_in? && current_user.user_Type == "renter"
-      redirect_to '/owner/dashboard'
-    end
-  end
-
   def renter_main
     @properties = UserProperty.where(user_id: current_user.id)
   end
 
+
+  # Owners Controller
+  def owner
+    if user_signed_in? && current_user.user_type == "renter"
+      redirect_to '/owner/dashboard'
+    end
+  end
+
+  def owner_main
+    if user_signed_in? && current_user._usertype == "owner"
+
+    else
+      redirect_to root
+    end
+  end
+
+
+  def owner_properties
+
+  end
+
+
+  def owner_renters
+
+  end
+  #END
   protected
     def configure_permitted_parameters
       devise_parameter_sanitizer.for(:sign_up) << :user_type
