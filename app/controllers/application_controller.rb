@@ -14,6 +14,9 @@ class ApplicationController < ActionController::Base
   end
 
   def owner
+    if user_signed_in? && current_user.user_Type == "renter"
+      redirect_to '/owner/dashboard'
+    end
   end
 
   def renter_main

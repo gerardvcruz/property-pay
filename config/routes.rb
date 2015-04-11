@@ -5,7 +5,16 @@ Rails.application.routes.draw do
 
   get 'renter' => 'application#renter'
 
+  get 'renter/dashboard' => 'application#renter_main'
+
+
+  # Owner Routes
   get 'owner' => 'application#owner'
 
-  get 'renter/dashboard' => 'application#renter_main'
+  get 'owner/dashboard' => 'application#owner_main'
+
+  get 'owner/properties' => 'application#owner_properties'
+
+  get 'owner/renters' => 'application#owner_renters'
+
 end
