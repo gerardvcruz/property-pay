@@ -1,0 +1,22 @@
+.side-nav {
+  background:rgb(40,40,40);
+  height:100vh;
+  margin:0;
+}
+
+.renter-main {
+}
+
+.nav-item {
+  padding:8% 0;
+  padding-left: 1%;
+  border-bottom: 1px solid rgb(70,70,70);
+  font-size: 80%;
+  width:99% !important;
+  float:left;
+  color:white;
+}
+
+.fa {
+  margin-right: 10px;
+}

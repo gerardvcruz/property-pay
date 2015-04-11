@@ -13,25 +13,13 @@
     </div>
     <div class="col-5">
       <div class="clear-100 no-mobile"></div>
-      <h3><a id="sign-up-link" class="small">Sign Up</a> | <a id="sign-in-link" class="">Sign In</a></h3>
-      <div id="sign-up">
-        <div class="clear-10"></div>
-        <p>It's free</p>
-        <div class="clear-10"></div>
-        <input placeholder="Email" type="text">
-        <div class="clear-10 no-desktop"></div>
-        <input placeholder="PH Mobile" type="text">
-        <button class="float-right">Sign Up</button>
-      </div>
-      <div id="sign-in" class="hidden">
-        <div class="clear-10"></div>
-        <p>Sign In to your account</p>
-        <div class="clear-10"></div>
-        <input placeholder="Email" type="text">
-        <div class="clear-10 no-desktop"></div>
-        <input placeholder="PH Mobile" type="text">
-        <button class="float-right">Sign Up</button>
-      </div>
+      <%= link_to new_user_session_path do %>
+        <button class="full-width">Sign In</button>
+      <% end %>
+      <p class="text-center small">or</p>
+      <%= link_to new_user_registration_path do %>
+        <button class="button-white full-width">Sign Up</button>
+      <% end %>
     </div>
   </div>
 </div>
