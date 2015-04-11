@@ -13,3 +13,13 @@ nav {
   padding:1% 7%;
   border:0;
 }
+
+#main-pic {
+  height:300px;
+  background:url('https://propertiesforsaleinphilippines.files.wordpress.com/2014/05/real-estate-for-sale-the-grove-by-rockwell-condo-condos-apartment-condominium-in-pasig-city-bedroom-philippines.jpg') center center no-repeat;
+  background-size:cover;
+}
+
+img {
+  float:left;
+}

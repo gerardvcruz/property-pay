@@ -59,5 +59,32 @@
 </div>
 
 <div class="modal-div" id="payment-modal">
-  TEST
+  <div class="full-width">
+    <h4>
+      <%= @user_property.property_type.capitalize %> information for the month of <%= Date.today.strftime("%B") %>
+    </h4>
+    <div class="clear-20"></div>
+    <p>Status: <%= @payment_record.status.capitalize %></p>
+    <p>Balance: <%= @payment_record.balance %></p>
+    <p>Amount to Pay:</p>
+    <ul>
+      <li>Rent: PHP<%= @property.rent_price %></li>
+      <li>Dues: PHP<%= @property.dues %></li>
+    </ul>
+
+    <div class="clear-20"></div>
+    <div class="clear-line"></div>
+    <div class="clear-20"></div>
+
+    <h4>Choose payment method:</h4>
+    <div class="clear-10"></div>
+    <div class="col-6">
+      <img class="full-width" src="http://3.bp.blogspot.com/-xAAxlk31GZM/UDwmaQ8dvJI/AAAAAAAAAhQ/_ytGcY2DOy4/s1600/smartmoney1.png">
+    </div>
+    <div class="col-6">
+      <%= link_to new_paypal_path do %>
+        <img class="full-width" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/pp-acceptance-large.png" alt="Buy now with PayPal" />
+      <% end %>
+    </div>
+  </div>
 </div>

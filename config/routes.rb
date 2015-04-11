@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :properties
 
-  root 'application#home'
+  root 'application#renter'
 
   get 'renter' => 'application#renter'
 
@@ -19,6 +19,6 @@ Rails.application.routes.draw do
 
   get 'owner/renters' => 'owners#renters'
 
-
+  get 'new_paypal' => 'paypal#new'
 
 end

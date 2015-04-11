@@ -56,3 +56,5 @@ gem 'chart-js-rails'
 gem 'jquery-ui-rails'
 gem 'jquery-modal-rails'
 
+gem 'paypal-sdk-rest'
+
