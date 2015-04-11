@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20150411202340) do
   create_table "user_properties", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "property_id"
+    t.integer  "owner_type"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "property_type"

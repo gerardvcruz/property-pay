@@ -1,0 +1,56 @@
+<div class="container no-padding">
+  <div class="container-flex">
+    <div class="col-2 col-flex side-nav">
+      <%= link_to owner_dashboard_path, class: "nav-item" do %>
+        <i class="fa fa-tachometer"></i>Dashboard
+      <% end %>
+
+      <%= link_to owner_properties_path, class: "nav-item" do %>
+        <i class="fa fa-home"></i>Properties
+      <% end %>
+
+      <%= link_to owner_renters_path, class: "nav-item" do %>
+        <i class="fa fa-users"></i>Renters
+      <% end %>
+    </div>
+
+    <div class="col-10">
+      <div class="col-12">
+        <!-- <h3>Welcome back, <%= current_user.email %>!</h3> -->
+        <div class="col-12">
+          <div class="col-12">
+            <h3>Add Property</h3>
+          </div>
+
+          <%= form_tag("/properties", method: "post", name:"property") do %>
+
+          <div class="col-12">
+              <label>Property Name:</label>
+              <input class="col-5" type='text' name="name"/>
+          </div>
+
+          <div class="col-12">
+              <label>Rent Price:</label>
+              <input class="col-5" type='numbers' name="rent_price"/>
+          </div>
+
+          <div class="col-12">
+              <label>Property Type:</label>
+              <select class='col-5' name="property_type">
+                <option>-- Choose Type --</option>
+                <option value="condominium">Condominium</option>
+                <option value="hotel">Hotel</option>
+                <option value="office space">Office Space</option>
+                <option value="parking">Parking</option>
+              </select>
+          </div>
+
+          <div class="col-12">
+            <button class="button-white fa fa-plus"> Submit</button>
+          </div>
+          <% end %>
+
+      <!-- <%= current_user.user_type %> -->
+      </div>
+  </div>
+</div>
