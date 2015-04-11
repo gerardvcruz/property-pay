@@ -107,6 +107,7 @@ h6, .h6 {
 }
 
 small, .small {
+  font-size:90%;
   color:rgb(120,120,120);
 }
 

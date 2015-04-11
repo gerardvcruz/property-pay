@@ -13,9 +13,17 @@
       <h4 class="font-bold logo">PropertyPay</h4>
     </div>
     <div class="col-6 no-mobile text-right">
-      <%= link_to "Owners", owner_path, class: "nav-link small no-border" %>
-      <%= link_to "Renter", renter_path, class: "nav-link small no-border" %>
-      <%= link_to "Home", root_path, class: "nav-link small no-border" %>
+      <% if !user_signed_in? %>
+        <p class="small">
+          <%= link_to "Log In", new_user_session_path, class: "nav-link small no-border" %>
+          <%= link_to "Owners", owner_path, class: "nav-link small no-border" %>
+          <%= link_to "Renter", renter_path, class: "nav-link small no-border" %>
+          <%= link_to "Home", root_path, class: "nav-link small no-border" %>
+        </p>
+    <% else %>
+      <p class="small">Welcome <%= current_user.email %>!
+      <%= link_to 'Logout', destroy_user_session_path, method:  :delete %></p>
+    <% end %>
     </div>
   </div>
 </nav>
