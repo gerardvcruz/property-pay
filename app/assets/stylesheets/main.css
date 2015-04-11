@@ -1,4 +1,15 @@
 nav {
-  height:50px;
+  width:100%;
   background:rgb(240,240,240);
+  float:left;
+}
+
+.logo {
+  padding:1%;
+}
+
+.nav-link {
+  float:right;
+  padding:1% 7%;
+  border:0;
 }

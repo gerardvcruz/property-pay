@@ -10,14 +10,12 @@
 <nav>
   <div class="row">
     <div class="col-6">
-      <h1>Property Pay</h1>
+      <h4 class="font-bold logo">PropertyPay</h4>
     </div>
-    <div class="col-6">
-
-      <%= link_to "Home", root_path %>
-      <%= link_to "Renter", renter_path %>
-
-      <%= link_to "Owners", owner_path %>
+    <div class="col-6 no-mobile text-right">
+      <%= link_to "Owners", owner_path, class: "nav-link small no-border" %>
+      <%= link_to "Renter", renter_path, class: "nav-link small no-border" %>
+      <%= link_to "Home", root_path, class: "nav-link small no-border" %>
     </div>
   </div>
 </nav>
