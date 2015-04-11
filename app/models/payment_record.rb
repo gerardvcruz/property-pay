@@ -27,8 +27,8 @@ class PaymentRecord < ActiveRecord::Base
         @property = Property.find(UserProperty.find_by_user_id(user_id).property_id)
         @payment_record = PaymentRecord.new
         @payment_record.status = "pending"
-        @payment_record.amount = @property.rent_price
-        @payment_record.balance = @property.rent_price
+        @payment_record.amount = @property.rent_price + @property.dues
+        @payment_record.balance = @property.rent_price + @property.dues
         @payment_record.ref_id = Array.new(6){[*"A".."Z", *"0".."9"].sample}.join
         @payment_record.user_id = user_id
         @payment_record.property_id = @property.id

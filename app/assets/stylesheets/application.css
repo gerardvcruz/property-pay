@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery.modal
  *= require reset
  *= require font-awesome
  */

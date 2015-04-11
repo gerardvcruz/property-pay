@@ -19,10 +19,12 @@
         <h3>Welcome back, <%= current_user.email %>!</h3>
       </div>
       <div class="col-4">
-        <button class="button-white full-width">
-          <h1><i class="fa fa-rub"></i></h1>
-          <h4>Pay for this month's rent</h4>
-        </button>
+        <%= link_to_modal "#payment-modal" do %>
+          <button class="button-white full-width">
+            <h1><i class="fa fa-rub"></i></h1>
+            <h4>Pay for this month's rent</h4>
+          </button>
+        <% end %>
       </div>
       <div class="col-4">
         <button class="button-white full-width">
@@ -36,7 +38,26 @@
           <h4>Contact Landlord</h4>
         </button>
       </div>
+      <div class="clear-20"></div>
+      <div class="clear-line"></div>
+      <div class="clear-20"></div>
+      <h4>
+        <%= @user_property.property_type.capitalize %> information for the month of <%= Date.today.strftime("%B") %>
+      </h4>
+      <div class="clear-20"></div>
+      <p>Status: <%= @payment_record.status.capitalize %></p>
+      <p>Balance: <%= @payment_record.balance %></p>
+      <p>Amount to Pay:</p>
+      <ul>
+        <li>Rent: PHP<%= @property.rent_price %></li>
+        <li>Dues: PHP<%= @property.dues %></li>
+      </ul>
+
       <!-- <%= current_user.user_type %> -->
     </div>
   </div>
+</div>
+
+<div class="modal-div" id="payment-modal">
+  TEST
 </div>
