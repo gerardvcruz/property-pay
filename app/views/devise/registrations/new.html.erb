@@ -25,10 +25,9 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-   <div class="field">
-    <%= f.label :user_type %><br />
-    <%= f.hidden_field :user_type, :value => "renter" %>
-  </div>
+  <!-- <%= f.hidden_field :user_type, :value => "renter" %> -->
+  <%= f.hidden_field :user_type, :value => "owner" %>
+
 
   <div class="actions">
     <%= f.submit "Sign up" %>
