@@ -19,4 +19,6 @@ Rails.application.routes.draw do
 
   get 'owner/renters' => 'owners#renters'
 
+
+
 end
