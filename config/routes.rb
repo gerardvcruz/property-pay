@@ -33,4 +33,10 @@ Rails.application.routes.draw do
 
   get 'owner/properties/:id/renters/:renter_id' => 'owners#renter'
 
+  get 'owner/bill_renter/:user_id' => 'owners#bill_renter', as: :bill_renter
+
+  get 'bill_success' => 'owners#bill_success'
+
+  get 'bill_failed' => 'owners#bill_failed'
+
 end

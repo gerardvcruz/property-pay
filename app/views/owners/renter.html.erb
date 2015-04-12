@@ -38,27 +38,27 @@
 
               <div class="col-12">
                   <label>Email Address:</label>
-                  <p class="font-bold">kaii@gmail.com</p>
+                  <p class="font-bold"><%= @user.email %></p>
               </div>
 
               <div class="col-12">
                   <label>Rented Space:</label>
-                  <p class="font-bold">Mozilla Firefox</p>
+                  <p class="font-bold"><%= @property.name %></p>
               </div>
 
               <div class="col-12">
-                  <label>Dues:</label>
-                  <p class="font-bold">$30,000.0</p>
+                  <label>Rent:</label>
+                  <p class="font-bold">PHP<%= @property.rent_price + @property.dues %></p>
               </div>
 
               <div class="col-12">
                 <div class="col-4">
-
+                  <%= link_to_modal "#billing-modal" do %>
                   <button class="button-white full-width">
-                    <h1><i class="fa fa-money"></i></h1>
-                    <p>Request Invoice</p>
+                    <h1><i class="fa fa-money"></i></h1> <p>Request Invoice</p>
 
                   </button>
+                  <% end %>
                 </div>
               </div>
             </div>
@@ -67,5 +67,33 @@
 
       <!-- <%= current_user.user_type %> -->
       </div>
+  </div>
+</div>
+
+<div class="modal-div" id="billing-modal">
+  <div class="full-width">
+    <h4>
+      Bill resident for month of <%= Date.today.strftime("%B") %>
+    </h4>
+    <div class="clear-20"></div>
+    <ul class="col-4">
+      <li class="text-right">Rent:</li>
+      <li class="text-right">Dues:</li>
+      <li class="text-right font-bold">Total:</li>
+    </ul>
+    <ul class="col-4">
+      <li class="text-right">PHP <%= @property.rent_price %></li>
+      <li class="text-right"> PHP <%= @property.dues %></li>
+      <li class="font-bold text-right">PHP <%= @property.rent_price + @property.dues %></li>
+    </ul>
+    <div class="clear-20"></div>
+    <div class="col-6">
+      <%= link_to bill_renter_path(:user_id => @user.id) do %>
+        <button class="button full-width">Bill resident</button>
+      <% end %>
+    </div>
+    <div class="col-6">
+      <button class="button-white full-width" onclick="$.modal.close()">Cancel<br></button>
+    </div>
   </div>
 </div>

@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
   def home
     if user_signed_in? && current_user.user_type == "renter"
       redirect_to '/renter/dashboard'
+    else user_signed_in? && current_user.user_type == "owner"
+      redirect_to '/owner/dashboard'
     end
   end
 

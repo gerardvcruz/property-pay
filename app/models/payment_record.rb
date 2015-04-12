@@ -29,17 +29,17 @@ class PaymentRecord < ActiveRecord::Base
         @payment_record.status = "pending"
         @payment_record.amount = @property.rent_price + @property.dues
         @payment_record.balance = @property.rent_price + @property.dues
-        @payment_record.ref_id = Array.new(6){[*"A".."Z", *"0".."9"].sample}.join
+        @payment_record.ref_id = Array.new(6){[*"0".."9"].sample}.join
         @payment_record.user_id = user_id
         @payment_record.property_id = @property.id
 
         if @payment_record.save!
-          @message = {:message => "saved", :success => true}
+          @message = {:message => "succesfully billed resident", :success => true}
         else
           @message = {:message => "error saving", :success => false}
         end
       else
-        @message = {:message => "already charged for this month", :success => false}
+        @message = {:message => "already billed resident for this month", :success => false}
       end
     end
   end
