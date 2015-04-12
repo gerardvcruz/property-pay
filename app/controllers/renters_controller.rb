@@ -2,13 +2,19 @@ class RentersController < ApplicationController
   before_action :renter?
 
   def dashboard
-    @payment_record = PaymentRecord.where("user_id = ? AND created_at > ?", current_user.id, Date.today - Time.new.day).first
+    @payment_record = PaymentRecord.where("user_id = ? AND created_at > ?",
+                                          current_user.id,
+                                          Date.today - Time.new.day).last
     @user_property = UserProperty.find_by_user_id(current_user.id)
     @property = Property.find(@user_property.property_id)
   end
 
-  def rent
-
+  def monthly_rent
+    @payment_records = PaymentRecord.where(user_id: current_user.id).order('created_at DESC')
+    @balance = 0
+    @payment_records.each do |pr|
+      @balance += pr.balance
+    end
   end
 
   def dues

@@ -6,12 +6,8 @@
       <% end %>
 
       <%= link_to renter_monthly_rent_path, class: "nav-item" do %>
-        <i class="fa fa-home"></i>Rent
+        <i class="fa fa-home"></i>Monthly Rent
       <% end %>
-
-      <a class="nav-item">
-        <i class="fa fa-bolt"></i>Dues
-      </a>
     </div>
 
     <div class="col-10">
@@ -34,10 +30,12 @@
         <% end %>
       </div>
       <div class="col-4">
-        <button class="button-white full-width">
-          <h1><i class="fa fa-area-chart"></i></h1>
-          <h4>View past month's bills</h4>
-        </button>
+        <%= link_to renter_monthly_rent_path do %>
+          <button class="button-white full-width">
+            <h1><i class="fa fa-area-chart"></i></h1>
+            <h4>View past month's bills</h4>
+          </button>
+        <% end %>
       </div>
       <div class="col-4">
         <button class="button-white full-width">
@@ -48,18 +46,29 @@
       <div class="clear-20"></div>
       <div class="clear-line"></div>
       <div class="clear-20"></div>
-      <h4>
-        <%= @user_property.property_type.capitalize %> information for the month of <%= Date.today.strftime("%B") %>
-      </h4>
-      <div class="clear-20"></div>
-      <p>Status: <%= @payment_record.status.capitalize %></p>
-      <p>Balance: <%= @payment_record.balance %></p>
-      <p>Amount to Pay:</p>
-      <ul>
-        <li>Rent: PHP<%= @property.rent_price %></li>
-        <li>Dues: PHP<%= @property.dues %></li>
-      </ul>
-
+      <div class="col-12">
+        <h3>Latest rent:</h3>
+        <div class="clear-10"></div>
+        <div class="payment-record">
+            <div class="col-10">
+              <h4>Month: <%= @payment_record.created_at.strftime("%B") %></h4><br>
+              <h5>Ref ID: <%= @payment_record.ref_id %></h5><br>
+              <h5>Amount: <%= @payment_record.amount %></h5><br>
+              <h5>Balance: <%= @payment_record.balance %></h5><br>
+            </div>
+            <div class="col-2">
+              <div class="clear-20 no-mobile"></div>
+              <% if @payment_record.status == "paid" %>
+                <button class="button-lime full-width"><h4>PAID</h4></button>
+              <p class="small text-center">Paid: <%= @payment_record.updated_at.strftime("%b %d, %y") %></p>
+              <% else %>
+                <%= link_to_modal "#payment-modal" do %>
+                  <button class="button-orange full-width"><h4>PENDING</h4></button>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
       <!-- <%= current_user.user_type %> -->
     </div>
   </div>
@@ -71,27 +80,32 @@
       <%= @user_property.property_type.capitalize %> information for the month of <%= Date.today.strftime("%B") %>
     </h4>
     <div class="clear-20"></div>
-    <p>Status: <%= @payment_record.status.capitalize %></p>
-    <p>Balance: <%= @payment_record.balance %></p>
-    <p>Amount to Pay:</p>
-    <ul>
-      <li>Rent: PHP<%= @property.rent_price %></li>
-      <li>Dues: PHP<%= @property.dues %></li>
+    <ul class="col-4">
+      <li class="text-right">Rent:</li>
+      <li class="text-right">Dues:</li>
+      <li class="text-right font-bold">Total:</li>
+    </ul>
+    <ul class="col-4">
+      <li class="text-right">PHP <%= @property.rent_price %></li>
+      <li class="text-right"> PHP <%= @property.dues %></li>
+      <li class="font-bold text-right">PHP <%= @payment_record.amount %></li>
     </ul>
 
     <div class="clear-20"></div>
     <div class="clear-line"></div>
     <div class="clear-20"></div>
 
-    <h4>Choose payment method:</h4>
-    <div class="clear-10"></div>
-    <div class="col-6">
-      <img class="full-width" src="http://3.bp.blogspot.com/-xAAxlk31GZM/UDwmaQ8dvJI/AAAAAAAAAhQ/_ytGcY2DOy4/s1600/smartmoney1.png">
-    </div>
-    <div class="col-6">
-      <%= link_to new_paypal_path do %>
-        <img class="full-width" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/pp-acceptance-large.png" alt="Buy now with PayPal" />
-      <% end %>
+    <div class="col-12">
+      <h4>Choose payment method:</h4>
+      <div class="clear-10"></div>
+      <div class="col-6">
+        <img class="full-width" src="http://3.bp.blogspot.com/-xAAxlk31GZM/UDwmaQ8dvJI/AAAAAAAAAhQ/_ytGcY2DOy4/s1600/smartmoney1.png">
+      </div>
+      <div class="col-6">
+        <%= link_to new_paypal_path(:ref_id => @payment_record.ref_id) do %>
+          <img class="full-width" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/pp-acceptance-large.png" alt="Buy now with PayPal" />
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

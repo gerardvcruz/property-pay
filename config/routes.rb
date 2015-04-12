@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   get 'owner/renters' => 'owners#renters'
 
-  get 'new_paypal' => 'paypal#new'
+  get 'new_paypal/:ref_id' => 'paypal#new', as: :new_paypal
+
+  get 'paypal_success' => 'paypal#success'
 
 end

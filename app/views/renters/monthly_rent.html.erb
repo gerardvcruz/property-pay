@@ -6,16 +6,35 @@
       <% end %>
 
       <%= link_to renter_monthly_rent_path, class: "nav-item" do %>
-        <i class="fa fa-home"></i>Rent
+        <i class="fa fa-home"></i>Monthly Rent
       <% end %>
-
-      <a class="nav-item">
-        <i class="fa fa-bolt"></i>Dues
-      </a>
     </div>
 
     <div class="col-10">
-      monthly rent
+      <h3>Monthly Rent</h3>
+      <div class="clear-10"></div>
+      <h4>Balance: PHP<%= @balance %></h4>
+      <div class="clear-10"></div>
+
+      <% @payment_records.each do |pr| %>
+        <div class="payment-record">
+          <div class="col-10">
+            <h4>Month: <%= pr.created_at.strftime("%B") %></h4><br>
+            <h5>Ref ID: <%= pr.ref_id %></h5><br>
+            <h5>Amount: <%= pr.amount %></h5><br>
+            <h5>Balance: <%= pr.balance %></h5><br>
+          </div>
+          <div class="col-2">
+            <div class="clear-50 no-mobile"></div>
+            <% if pr.status == "paid" %>
+              <button class="button-lime full-width">PAID</button>
+            <p class="small text-center">Paid: <%= pr.updated_at.strftime("%b %d, %y") %></p>
+            <% else %>
+              <button class="button-orange full-width">PENDING</button>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

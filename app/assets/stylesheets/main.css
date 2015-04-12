@@ -23,3 +23,7 @@ nav {
 img {
   float:left;
 }
+
+.small {
+  font-size:80%;
+}

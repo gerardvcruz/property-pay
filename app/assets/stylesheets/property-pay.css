@@ -698,10 +698,11 @@ button[disabled]:active
 
 /* THANK YOU https://github.com/kylefox/jquery-modal */
 .modal {
+
   display: none;
   max-width: 600px;
   max-height:90%;
-  overflow: auto;
+  overflow: hidden;
   background: #fff;
   padding: 15px 30px;
   -webkit-border-radius: 8px;
