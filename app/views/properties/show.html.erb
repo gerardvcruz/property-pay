@@ -62,12 +62,14 @@
 
               <div class="col-12">
                 <div class="col-4">
+                  <%= link_to "/owner/properties/#{@property.id}/renters", class: "" do %>
                   <button class="button-white full-width">
                     <h1><i class="fa fa-users"></i></h1>
                     <h4>Renters</h4>
+                  <% end %>
                   </button>
                 </div>
-                <div class="col-4">
+                <!-- <div class="col-4">
                   <button class="button-white full-width">
                     <h1><i class="fa fa-rub"></i></h1>
                     <h4>Dues</h4>
@@ -78,7 +80,7 @@
                     <h1><i class="fa fa-pie-chart"></i></h1>
                     <h4>Statistics</h4>
                   </button>
-                </div>
+                </div> -->
               </div>
             </div>
 

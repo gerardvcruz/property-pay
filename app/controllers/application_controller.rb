@@ -19,8 +19,13 @@ class ApplicationController < ActionController::Base
   # Owners Actions
   def owner
     if user_signed_in? && current_user.user_type == "renter"
-      redirect_to '/owner/dashboard'
+        redirect_to '/renter/dashboard'
     end
+
+    if user_signed_in? && current_user.user_type == "owner"
+        redirect_to '/owner/dashboard'
+    end
+
   end
 
   def owner_main

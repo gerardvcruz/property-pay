@@ -1,0 +1,71 @@
+<div class="container no-padding">
+  <div class="container-flex">
+    <div class="col-2 col-flex side-nav">
+      <%= link_to owner_dashboard_path, class: "nav-item" do %>
+        <i class="fa fa-tachometer"></i>Dashboard
+      <% end %>
+
+      <%= link_to owner_properties_path, class: "nav-item" do %>
+        <i class="fa fa-home"></i>Properties
+      <% end %>
+
+      <!-- <%= link_to owner_renters_path, class: "nav-item" do %>
+        <i class="fa fa-users"></i>Renters
+      <% end %> -->
+    </div>
+
+    <div class="col-10">
+      <div class="col-12">
+        <!-- <h3>Welcome back, <%= current_user.email %>!</h3> -->
+        <div class="col-12">
+          <div class="col-12">
+            <div class="col-8">
+            <h3>Renter Details</h3>
+          </div>
+            <div class="col-4">
+
+            </div>
+          </div>
+
+
+          <div class="col-12">
+            <div class="col-6">
+              <!-- <i class="fa fa-user fa-5x"></i> -->
+              <img src="http://placehold.it/400x400">
+            </div>
+
+            <div class="col-6">
+
+              <div class="col-12">
+                  <label>Email Address:</label>
+                  <p class="font-bold">kaii@gmail.com</p>
+              </div>
+
+              <div class="col-12">
+                  <label>Rented Space:</label>
+                  <p class="font-bold">Mozilla Firefox</p>
+              </div>
+
+              <div class="col-12">
+                  <label>Dues:</label>
+                  <p class="font-bold">$30,000.0</p>
+              </div>
+
+              <div class="col-12">
+                <div class="col-4">
+
+                  <button class="button-white full-width">
+                    <h1><i class="fa fa-money"></i></h1>
+                    <p>Request Invoice</p>
+
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+      <!-- <%= current_user.user_type %> -->
+      </div>
+  </div>
+</div>

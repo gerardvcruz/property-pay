@@ -7,6 +7,21 @@ class OwnersController < ApplicationController
 
 
   def renters
+
+  end
+
+  def property_renters
+    p "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+    p property_id = params[:id]
+    @property = Property.find(params[:id])
+    @users = []
+    @user_property = UserProperty.where("property_id = ? AND property_type = ?", params[:id],"renter")
+    @user_property.each do |up|
+      @users << User.find(up.user_id)
+    end
+  end
+
+  def renter
     
   end
 

@@ -10,8 +10,6 @@ Rails.application.routes.draw do
 
   get 'renter/monthly_rent/' => 'renters#monthly_rent'
 
-  get 'new_paypal' => 'paypal#new'
-
   # Owner Routes
   get 'owner' => 'application#owner'
 
@@ -30,5 +28,9 @@ Rails.application.routes.draw do
   get 'owner/properties/:id' => 'properties#show'
 
   get 'owner/properties/:id/edit' => 'properties#edit'
+
+  get 'owner/properties/:id/renters' => 'owners#property_renters'
+
+  get 'owner/properties/:id/renters/:renter_id' => 'owners#renter'
 
 end
