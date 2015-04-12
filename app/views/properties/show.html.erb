@@ -1,0 +1,90 @@
+<div class="container no-padding">
+  <div class="container-flex">
+    <div class="col-2 col-flex side-nav">
+      <%= link_to owner_dashboard_path, class: "nav-item" do %>
+        <i class="fa fa-tachometer"></i>Dashboard
+      <% end %>
+
+      <%= link_to owner_properties_path, class: "nav-item" do %>
+        <i class="fa fa-home"></i>Properties
+      <% end %>
+
+      <!-- <%= link_to owner_renters_path, class: "nav-item" do %>
+        <i class="fa fa-users"></i>Renters
+      <% end %> -->
+    </div>
+
+    <div class="col-10">
+      <div class="col-12">
+        <!-- <h3>Welcome back, <%= current_user.email %>!</h3> -->
+        <div class="col-12">
+          <div class="col-12">
+            <div class="col-8">
+            <h3><%= @property.name %></h3>
+          </div>
+            <div class="col-4">
+              <%= link_to "/properties/#{params[:id]}",method: :delete, data: {confirm: "Delete this property into your listing?"} do %>
+              <button class="button-white float-right fa fa-trash-o"> Delete Listing</button>
+              <% end %>
+              <%= link_to "/properties/#{params[:id]}/edit" do %>
+              <button class="button-white float-right fa fa-pencil"> Edit Listing</button>
+              <% end %>
+            </div>
+          </div>
+
+
+          <div class="col-12">
+            <div class="col-6">
+              <img src="http://placehold.it/400x400">
+            </div>
+
+            <div class="col-6">
+
+              <div class="col-12">
+                  <label>Name:</label>
+                  <p class="font-bold"><%= @property.name%></p>
+              </div>
+
+              <div class="col-12">
+                  <label>Type:</label>
+                  <p class="font-bold"><%= @property.property_type%></p>
+              </div>
+
+              <div class="col-12">
+                  <label>Rent Price:</label>
+                  <p class="font-bold"><%= number_to_currency(@property.rent_price, unit: "$") %></p>
+              </div>
+
+              <div class="col-12">
+                  <label>Description:</label>
+                  <p class="font-bold"><%= @property.description%></p>
+              </div>
+
+              <div class="col-12">
+                <div class="col-4">
+                  <button class="button-white full-width">
+                    <h1><i class="fa fa-users"></i></h1>
+                    <h4>Renters</h4>
+                  </button>
+                </div>
+                <div class="col-4">
+                  <button class="button-white full-width">
+                    <h1><i class="fa fa-rub"></i></h1>
+                    <h4>Dues</h4>
+                  </button>
+                </div>
+                <div class="col-4">
+                  <button class="button-white full-width">
+                    <h1><i class="fa fa-pie-chart"></i></h1>
+                    <h4>Statistics</h4>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+      <!-- <%= current_user.user_type %> -->
+      </div>
+  </div>
+</div>

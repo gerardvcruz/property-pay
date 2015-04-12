@@ -1,0 +1,58 @@
+<div class="container no-padding">
+  <div class="container-flex">
+    <div class="col-2 col-flex side-nav">
+      <%= link_to owner_dashboard_path, class: "nav-item" do %>
+        <i class="fa fa-tachometer"></i>Dashboard
+      <% end %>
+
+      <%= link_to owner_properties_path, class: "nav-item" do %>
+        <i class="fa fa-home"></i>Properties
+      <% end %>
+
+      <!-- <%= link_to owner_renters_path, class: "nav-item" do %>
+        <i class="fa fa-users"></i>Renters
+      <% end %> -->
+    </div>
+
+    <div class="col-10">
+      <div class="col-12">
+        <!-- <h3>Welcome back, <%= current_user.email %>!</h3> -->
+        <div class="col-12">
+          <div class="col-12">
+            <h3>Edit Property</h3>
+          </div>
+
+          <%= form_tag("/properties/#{@property.id}", method: "put",id: @property.id, name:"properties") do %>
+
+          <input type="hidden" name="id" value="">
+
+          <div class="col-12">
+              <label>Property Name:</label>
+              <input class="col-5" type='text' name="name" value="<%= @property.name %>"/>
+          </div>
+
+          <div class="col-12">
+              <label>Rent Price:</label>
+              <input class="col-5" type='numbers' name="rent_price" value="<%= @property.rent_price %>"/>
+          </div>
+
+          <div class="col-12">
+              <label>Property Type:</label>
+              <select class='col-5' name="property_type">
+                <option>-- Choose Type --</option>
+                <option <%= @property.property_type == 'condominium' ? 'selected="selected"' : '' %> value="condominium">Condominium</option>
+                <option <%= @property.property_type == 'hotel' ? 'selected="selected"' : '' %> value="hotel">Hotel</option>
+                <option <%= @property.property_type == 'office space' ? 'selected="selected"' : '' %> value="office space">Office Space</option>
+                <option <%= @property.property_type == 'parking' ? 'selected="selected"' : '' %> value="parking">Parking</option>
+              </select>
+          </div>
+
+          <div class="col-12">
+            <button class="button-white fa fa-plus"> Submit</button>
+          </div>
+          <% end %>
+
+      <!-- <%= current_user.user_type %> -->
+      </div>
+  </div>
+</div>
