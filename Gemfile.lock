@@ -67,6 +67,8 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.3.0)
+    faraday (0.9.1)
+      multipart-post (>= 1.2, < 3)
     font-awesome-rails (4.3.0.0)
       railties (>= 3.2, < 5.0)
     globalid (0.3.3)
@@ -98,6 +100,7 @@ GEM
     mini_portile (0.6.2)
     minitest (5.5.1)
     multi_json (1.11.0)
+    multipart-post (2.0.0)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     nokogiri (1.6.6.2-x86-mingw32)
@@ -203,6 +206,7 @@ DEPENDENCIES
   chart-js-rails
   coffee-rails (~> 4.1.0)
   devise
+  faraday
   font-awesome-rails
   jbuilder (~> 2.0)
   jquery-modal-rails

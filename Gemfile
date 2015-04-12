@@ -58,3 +58,5 @@ gem 'jquery-modal-rails'
 
 gem 'paypal-sdk-rest'
 
+gem 'faraday'
+
