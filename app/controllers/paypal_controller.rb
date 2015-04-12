@@ -36,8 +36,8 @@ class PaypalController < ApplicationController
                   :description => "April Rent Payment"
               }],
             :redirect_urls => {
-              :return_url => 'http://localhost:3000/paypal_success',
-              :cancel_url => 'http://localhost:3000'
+              :return_url => 'http://property-pay.herokuapp.com/paypal_success',
+              :cancel_url => 'http://property-pay.herokuapp.com'
             }
           }
 
