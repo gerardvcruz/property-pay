@@ -2,8 +2,11 @@ class RentersController < ApplicationController
   before_action :renter?
 
   def dashboard
-    @payment_record = PaymentRecord.where("user_id = ?",
-                                          current_user.id).first
+    @payment_record = PaymentRecord.where("user_id = ? AND status != ?",
+                                          current_user.id, "paid").last
+    if @payment_record.nil?
+      @payment_record = PaymentRecord.where("user_id = ?", current_user.id).last
+    end
     @user_property = UserProperty.find_by_user_id(current_user.id)
     @property = Property.find(@user_property.property_id)
   end
