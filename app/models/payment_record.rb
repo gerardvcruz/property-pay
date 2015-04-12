@@ -1,8 +1,8 @@
 class PaymentRecord < ActiveRecord::Base
 
   def self.accept_payment user_id
-    @payment_record = PaymentRecord.where("user_id = ? AND created_at > ?",
-                                          user_id, Date.today - Time.new.day).last
+    @payment_record = PaymentRecord.where("user_id = ? AND status != ?",
+                                          User.first.id, "paid").last
 
     if @payment_record.nil?
       @message = {:message => "payment record not found", :success => false}
