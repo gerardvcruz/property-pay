@@ -15,7 +15,7 @@ class PaypalController < ApplicationController
     else
       items = []
       items << {
-              :name => "April Rent",
+              :name => "#{@payment_record.created_at.strftime("%B")} Rent",
               :sku => @payment_record.ref_id,
               :price => sprintf("%.2f", @payment_record.amount),
               :quantity => 1,
@@ -33,7 +33,7 @@ class PaypalController < ApplicationController
                   :item_list => {
                     :items => items,
                   },
-                  :description => "April Rent Payment"
+                  :description => "#{@payment_record.created_at.strftime("%B")} Rent Payment"
               }],
             :redirect_urls => {
               :return_url => 'http://property-pay.herokuapp.com/paypal_success',

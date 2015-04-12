@@ -18,13 +18,13 @@
         <% if @payment_record.status == "paid" %>
           <button type="button" class="button-white full-width" disabled>
           <h1><i class="fa fa-rub"></i></h1>
-          <h4>Pay for this month's rent</h4>
+          <h4>All paid!</h4>
         <% else %>
 
           <%= link_to_modal "#payment-modal" do %>
             <button type="button" class="button-white full-width ">
               <h1><i class="fa fa-rub"></i></h1>
-              <h4>Pay for this month's rent</h4>
+              <h4>Pay for latest rent due</h4>
             </button>
           <% end %>
         <% end %>
@@ -77,7 +77,7 @@
 <div class="modal-div" id="payment-modal">
   <div class="full-width">
     <h4>
-      <%= @user_property.property_type.capitalize %> information for the month of <%= Date.today.strftime("%B") %>
+      <%= @user_property.property_type.capitalize %> information for the month of <%= @payment_record.created_at.strftime("%B") %>
     </h4>
     <div class="clear-20"></div>
     <ul class="col-4">
